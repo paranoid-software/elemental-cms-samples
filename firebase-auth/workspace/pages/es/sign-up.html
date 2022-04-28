@@ -1,2 +1,30 @@
-<div>No estamos listos aún !</div>
-<a href="{{ elemental_url_for_slug(lang_code='es', draft=(None if 'draft' not in request.args else '1')) }}">Inicio</a>
+<div>
+    <div data-controller-name="SignUpPlugster">
+        <input type="hidden" data-outlet-id="langCodeHiddentInput" value="{{ lang_code }}"/>
+        <input type="hidden" data-outlet-id="gatewayTokenHiddenInput" value="{{ gateway_token }}"/>
+        <section class="section">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenido !
+                </h1>
+                <p class="subtitle">
+                    Estas a un solo paso de tener tu cuenta de usuario.
+                </p>
+                <div class="field">
+                    <div class="control">
+                        <input aria-label="Email" data-outlet-id="emailInput" class="input" type="email" placeholder="Tú correo electrónico">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input aria-label="Password" data-outlet-id="passwordInput" class="input" type="password" placeholder="Tú contraseña">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <a class="button" href="{{ elemental_url_for_slug(lang_code='es', draft=(None if 'draft' not in request.args else '1')) }}">Cancelar</a>
+                    <button class="button is-primary" data-outlet-id="signUpButton" disabled>Crear Cuenta</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

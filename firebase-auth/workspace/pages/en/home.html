@@ -12,6 +12,11 @@
                 {% else %}
                     <li>{{ render_snippet('sign-out-plugster') }}</li>
                 {% endif %}
+                <li>
+                    <a href="{{ elemental_url_for_slug(lang_code='es', draft=(None if 'draft' not in request.args else '1')) }}">
+                        (es)
+                    </a>
+                </li>
             </ul>
         </nav>
         <h1 class="title">
@@ -27,8 +32,19 @@
             <ul>
                 <li>jQuery</li>
                 <li>Plugster</li>
-                <li>Bulma and</li>
+                <li>Bulma, and</li>
                 <li><b>Google Firebase SDK</b></li>
+            </ul>
+            <p>
+                It tries to demonstrate the use of Firebase as users repository. And on its way also illustrates topics like:
+            </p>
+            <ul>
+                <li>Session managament</li>
+                <li>Multi language pages</li>
+                <li>Global dependencies usage</li>
+                <li>Local dependencies usage</li>
+                <li>Snippets inclusion</li>
+                <li>Snippets multi language support</li>
             </ul>
         </div>
     </div>

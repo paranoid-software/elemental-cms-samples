@@ -1,11 +1,55 @@
-<div>
-    {% if 'userIdentity' not in session %}
-        <a href="{{ elemental_url_for_slug(lang_code='es', slug='sign-in', draft=(None if 'draft' not in request.args else '1')) }}">Iniciar sesión</a>
-        <a href="{{ elemental_url_for_slug(lang_code='es', slug='sign-up', draft=(None if 'draft' not in request.args else '1')) }}">No tengo una cuenta aún !</a>
-    {% endif %}
-    <div data-controller-name="SignOutPlugster" data-visible="{{ 'userIdentity' in session }}">
-        <input type="hidden" data-outlet-id="langCodeHiddentInput" value="es" />
-        <input type="hidden" data-outlet-id="gatewayTokenHiddenInput" value="{{ gateway_token }}" />
-        <a data-outlet-id="signOutButton" href="#">Cerrar sesión</a>
+<section class="section">
+    <div class="container">
+        <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+            <ul>
+                {% if 'userIdentity' not in session %}
+                    <li>
+                        <a href="{{ elemental_url_for_slug(lang_code='es', slug='sign-in', draft=(None if 'draft' not in request.args else '1')) }}">
+                            Iniciar sesión
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ elemental_url_for_slug(lang_code='es', slug='sign-up', draft=(None if 'draft' not in request.args else '1')) }}">
+                            No tengo una cuenta aún !
+                        </a>
+                    </li>
+                {% else %}
+                    <li>{{ render_snippet('sign-out-plugster') }}</li>
+                {% endif %}
+                <li>
+                    <a href="{{ elemental_url_for_slug(lang_code='en', draft=(None if 'draft' not in request.args else '1')) }}">
+                        (en)
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <h1 class="title">
+            Ejemplo Firebase Auth
+        </h1>
+        <p class="subtitle">
+            Integración de Autenticación con Firebase y Elemental CMS
+        </p>
+        <div class="content">
+            <p>
+                Este ejemplo de Elemental CMS esta hecho con <3 utilizando:
+            </p>
+            <ul>
+                <li>jQuery</li>
+                <li>Plugster</li>
+                <li>Bulma, y</li>
+                <li><b>Google Firebase SDK</b></li>
+            </ul>
+            <p>
+                Intenta demostrar el uso de Firebase como mecanismo de autenticación y repositorio de usarios. Al mismo tiempo que ilustra sobre temas como:
+            </p>
+            <ul>
+                <li>Manejo de sesiones</li>
+                <li>Páginas multi-idioma</li>
+                <li>Uso de dependencias globales</li>
+                <li>Uso de dependencias locales (páginas y snippets)</li>
+                <li>Inclusión de snippets</li>
+                <li>Soporte multi-idioma en snippets</li>
+            </ul>
+        </div>
     </div>
-</div>
+</section>

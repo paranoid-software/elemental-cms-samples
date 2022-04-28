@@ -1,21 +1,30 @@
 <div>
     <div data-controller-name="SignInPlugster">
-        <input type="hidden" data-outlet-id="langCodeHiddentInput" value="{{ lang_code }}" />
-        <input type="hidden" data-outlet-id="gatewayTokenHiddenInput" value="{{ gateway_token }}" />
-        <div>
-            <label>Email
-                <input data-outlet-id="emailInput" type="email"/>
-            </label>
-        </div>
-        <div>
-            <label>
-                Contraseña
-                <input data-outlet-id="passwordInput" type="password"/>
-            </label>
-        </div>
-        <div>
-            <button data-outlet-id="signInButton">Iniciar Sesión</button>
-        </div>
+        <input type="hidden" data-outlet-id="langCodeHiddentInput" value="{{ lang_code }}"/>
+        <input type="hidden" data-outlet-id="gatewayTokenHiddenInput" value="{{ gateway_token }}"/>
+        <section class="section">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenido de vuelta !
+                </h1>
+                <p class="subtitle">
+                    Siempre listos para trabajar.
+                </p>
+                <div class="field">
+                    <div class="control">
+                        <input data-outlet-id="emailInput" class="input" type="email" placeholder="Tú correo electrónico">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input data-outlet-id="passwordInput" class="input" type="password" placeholder="Tú contraseña">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <a class="button" href="{{ elemental_url_for_slug(lang_code='es', draft=(None if 'draft' not in request.args else '1')) }}">Cancelar</a>
+                    <button class="button is-primary" data-outlet-id="signInButton" disabled>Iniciar Sesión</button>
+                </div>
+            </div>
+        </section>
     </div>
 </div>
-<a href="{{ elemental_url_for_slug(lang_code='es', draft=(None if 'draft' not in request.args else '1')) }}">Inicio</a>
