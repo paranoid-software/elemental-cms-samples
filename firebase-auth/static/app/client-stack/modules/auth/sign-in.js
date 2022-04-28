@@ -10,7 +10,11 @@ class SignInPlugster extends Plugster {
         super(outlets);
         const firebaseApp = initializeApp(firebaseConfig);
         this.auth = getAuth(firebaseApp);
-
+        this.setLocales({
+            es: {
+                'Wrong credentials.': 'Credenciales incorrectas.'
+            }
+        });
     }
 
     afterInit() {
@@ -77,7 +81,7 @@ class SignInPlugster extends Plugster {
         }).catch(() => {
             self._.signInButton.removeClass('is-loading');
             window.bulmaToast.toast({
-                message: `Wrong credentials.`,
+                message: self.translateTo(self._.langCodeHiddentInput.val(), 'Wrong credentials.'),
                 position: "top-center",
                 type: 'is-danger',
                 dismissible: true,

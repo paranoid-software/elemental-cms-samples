@@ -3,7 +3,7 @@
         "$oid": "626a79dee3cf86edcee4ce2c"
     },
     "order": 1,
-    "name": "bulma",
+    "name": "bulma-toast",
     "type": "application/javascript",
     "url": "https://unpkg.com/bulma-toast@2.4.1/dist/bulma-toast.min.js",
     "meta": {},

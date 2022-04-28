@@ -10,10 +10,7 @@
     "requiresUserIdentity": false,
     "redirectUsersTo": "",
     "cssDeps": [],
-    "jsDeps": [{
-        "url": "client-stack/modules/auth/sign-out.js",
-        "type": "module"
-    }],
+    "jsDeps": [],
     "createdAt": {
         "$date": 1650334654641
     },
