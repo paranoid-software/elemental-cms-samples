@@ -10,7 +10,11 @@ class SignUpPlugster extends Plugster {
         super(outlets);
         const firebaseApp = initializeApp(firebaseConfig);
         this.auth = getAuth(firebaseApp);
-
+        this.setLocales({
+           es: {
+               'Email already in use.': 'Correo electrónico no disponible.'
+           }
+        });
     }
 
     afterInit() {
@@ -64,7 +68,7 @@ class SignUpPlugster extends Plugster {
             self._.signUpButton.removeClass('is-loading');
             if (reason.code === 'auth/email-already-in-use') {
                 window.bulmaToast.toast({
-                    message: `Email ${email} already in use, please use another email.`,
+                    message: self.translateTo(self._.langCodeHiddentInput.val(), 'Email already in use.'),
                     position: "top-center",
                     type: 'is-danger',
                     dismissible: true,
