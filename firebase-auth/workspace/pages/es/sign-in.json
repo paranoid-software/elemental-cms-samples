@@ -1,0 +1,23 @@
+{
+    "_id": {
+        "$oid": "626015b0ac8b82781288461e"
+    },
+    "name": "sign-in",
+    "language": "es",
+    "title": "Inicio de Sesión",
+    "description": "",
+    "isHome": false,
+    "requiresUserIdentity": false,
+    "redirectUsersTo": "index",
+    "cssDeps": [],
+    "jsDeps": [{
+        "url": "client-stack/modules/auth/sign-in.js",
+        "type": "module"
+    }],
+    "createdAt": {
+        "$date": 1650464176903
+    },
+    "lastModifiedAt": {
+        "$date": 1650464176903
+    }
+}

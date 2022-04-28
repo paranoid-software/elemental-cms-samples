@@ -1,0 +1,35 @@
+<section class="section">
+    <div class="container">
+        <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+            <ul>
+                {% if 'userIdentity' not in session %}
+                    <li>
+                        <a href="{{ elemental_url_for_slug(lang_code='en', slug='sign-in', draft=(None if 'draft' not in request.args else '1')) }}">Sign
+                            In</a></li>
+                    <li>
+                        <a href="{{ elemental_url_for_slug(lang_code='en', slug='sign-up', draft=(None if 'draft' not in request.args else '1')) }}">I
+                            don't have an account !</a></li>
+                {% else %}
+                    <li>{{ render_snippet('sign-out-plugster') }}</li>
+                {% endif %}
+            </ul>
+        </nav>
+        <h1 class="title">
+            Firebase Auth Sample
+        </h1>
+        <p class="subtitle">
+            Elemental CMS Firebase Auth Integration
+        </p>
+        <div class="content">
+            <p>
+                This Elemental CMS sample is made with <3 using:
+            </p>
+            <ul>
+                <li>jQuery</li>
+                <li>Plugster</li>
+                <li>Bulma and</li>
+                <li><b>Google Firebase SDK</b></li>
+            </ul>
+        </div>
+    </div>
+</section>

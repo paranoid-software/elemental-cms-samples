@@ -1,0 +1,31 @@
+<div>
+    <div data-controller-name="SignInPlugster">
+        <input type="hidden" data-outlet-id="langCodeHiddentInput" value="{{ lang_code }}"/>
+        <input type="hidden" data-outlet-id="gatewayTokenHiddenInput" value="{{ gateway_token }}"/>
+        <section class="section">
+            <div class="container">
+                <h1 class="title">
+                    Welcome back !
+                </h1>
+                <p class="subtitle">
+                    We are always ready to get you in.
+                </p>
+                <div class="field">
+                    <div class="control">
+                        <input data-outlet-id="emailInput" class="input" type="email" placeholder="Your email">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input data-outlet-id="passwordInput" class="input" type="password" placeholder="Your password">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <a class="button" href="{{ elemental_url_for_slug(lang_code='en', draft=(None if 'draft' not in request.args else '1')) }}">Cancel</a>
+                    <button class="button is-primary" data-outlet-id="signInButton">Sign In</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

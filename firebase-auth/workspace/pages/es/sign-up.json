@@ -1,0 +1,20 @@
+{
+    "_id": {
+        "$oid": "626015b4d92c454cc6da1958"
+    },
+    "name": "sign-up",
+    "language": "es",
+    "title": "Crea tu cuenta",
+    "description": "",
+    "isHome": false,
+    "requiresUserIdentity": false,
+    "redirectUsersTo": "index",
+    "cssDeps": [],
+    "jsDeps": [],
+    "createdAt": {
+        "$date": 1650464180700
+    },
+    "lastModifiedAt": {
+        "$date": 1650464180700
+    }
+}

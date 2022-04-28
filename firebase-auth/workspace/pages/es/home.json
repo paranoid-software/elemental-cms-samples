@@ -1,0 +1,23 @@
+{
+    "_id": {
+        "$oid": "625e1bbeb7df2745069dfc60"
+    },
+    "name": "home",
+    "language": "es",
+    "title": "Inicio",
+    "description": "Ejemplo de autenticación con Firebase",
+    "isHome": true,
+    "requiresUserIdentity": false,
+    "redirectUsersTo": "",
+    "cssDeps": [],
+    "jsDeps": [{
+        "url": "client-stack/modules/auth/sign-out.js",
+        "type": "module"
+    }],
+    "createdAt": {
+        "$date": 1650334654641
+    },
+    "lastModifiedAt": {
+        "$date": 1650334654641
+    }
+}

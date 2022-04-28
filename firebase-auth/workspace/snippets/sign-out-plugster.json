@@ -1,0 +1,17 @@
+{
+    "_id": {
+        "$oid": "62602530f62a2bb120f9ce14"
+    },
+    "name": "sign-out-plugster",
+    "cssDeps": [],
+    "jsDeps": [{
+        "url": "client-stack/modules/auth/sign-out.js",
+        "type": "module"
+    }],
+    "createdAt": {
+        "$date": 1650468144926
+    },
+    "lastModifiedAt": {
+        "$date": 1650468144926
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "_id": {
+        "$oid": "625e180181fd48ae3727448d"
+    },
+    "name": "sign-up",
+    "language": "en",
+    "title": "Create your account",
+    "description": "",
+    "isHome": false,
+    "requiresUserIdentity": false,
+    "redirectUsersTo": "index",
+    "cssDeps": [{
+        "url": "https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css",
+        "type": "text/css"
+    }],
+    "jsDeps": [{
+        "url": "https://unpkg.com/bulma-toast@2.4.1/dist/bulma-toast.min.js",
+        "type": "application/javascript"
+    }, {
+        "url": "client-stack/modules/auth/sign-up.js",
+        "type": "module"
+    }],
+    "createdAt": {
+        "$date": 1650333697923
+    },
+    "lastModifiedAt": {
+        "$date": 1650333697923
+    }
+}

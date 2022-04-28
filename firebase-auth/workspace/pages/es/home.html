@@ -1,0 +1,11 @@
+<div>
+    {% if 'userIdentity' not in session %}
+        <a href="{{ elemental_url_for_slug(lang_code='es', slug='sign-in', draft=(None if 'draft' not in request.args else '1')) }}">Iniciar sesión</a>
+        <a href="{{ elemental_url_for_slug(lang_code='es', slug='sign-up', draft=(None if 'draft' not in request.args else '1')) }}">No tengo una cuenta aún !</a>
+    {% endif %}
+    <div data-controller-name="SignOutPlugster" data-visible="{{ 'userIdentity' in session }}">
+        <input type="hidden" data-outlet-id="langCodeHiddentInput" value="es" />
+        <input type="hidden" data-outlet-id="gatewayTokenHiddenInput" value="{{ gateway_token }}" />
+        <a data-outlet-id="signOutButton" href="#">Cerrar sesión</a>
+    </div>
+</div>

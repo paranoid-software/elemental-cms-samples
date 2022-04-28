@@ -1,0 +1,20 @@
+{
+    "_id": {
+        "$oid": "625e17d34d4694e590a2a34e"
+    },
+    "name": "home",
+    "language": "en",
+    "title": "Home",
+    "description": "Firebase auth sample",
+    "isHome": true,
+    "requiresUserIdentity": false,
+    "redirectUsersTo": "",
+    "cssDeps": [],
+    "jsDeps": [],
+    "createdAt": {
+        "$date": 1650333651852
+    },
+    "lastModifiedAt": {
+        "$date": 1650333651852
+    }
+}

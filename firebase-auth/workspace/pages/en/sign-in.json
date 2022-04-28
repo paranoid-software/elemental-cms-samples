@@ -1,0 +1,23 @@
+{
+    "_id": {
+        "$oid": "625e17fef88554b945e6f11b"
+    },
+    "name": "sign-in",
+    "language": "en",
+    "title": "Sign In",
+    "description": "",
+    "isHome": false,
+    "requiresUserIdentity": false,
+    "redirectUsersTo": "index",
+    "cssDeps": [],
+    "jsDeps": [{
+        "url": "client-stack/modules/auth/sign-in.js",
+        "type": "module"
+    }],
+    "createdAt": {
+        "$date": 1650333694370
+    },
+    "lastModifiedAt": {
+        "$date": 1650333694370
+    }
+}
