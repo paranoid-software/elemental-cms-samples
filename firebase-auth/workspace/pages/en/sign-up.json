@@ -14,9 +14,6 @@
         "type": "text/css"
     }],
     "jsDeps": [{
-        "url": "https://unpkg.com/bulma-toast@2.4.1/dist/bulma-toast.min.js",
-        "type": "application/javascript"
-    }, {
         "url": "client-stack/modules/auth/sign-up.js",
         "type": "module"
     }],

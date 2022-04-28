@@ -1,7 +1,7 @@
 import {Plugster} from 'https://cdn.jsdelivr.net/gh/paranoid-software/plugster@1.0.12/dist/plugster.min.js';
 import {firebaseConfig} from "./config.js";
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-import {getAuth, createUserWithEmailAndPassword, sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 
 class SignUpPlugster extends Plugster {
 
@@ -16,6 +16,22 @@ class SignUpPlugster extends Plugster {
     afterInit() {
 
         let self = this;
+
+        self._.emailInput.on('blur keyup', {}, (e) => {
+            if (self.isValidEmail(e.target.value) && self._.passwordInput.val()) {
+                self._.signUpButton.removeAttr('disabled');
+                return
+            }
+            self._.signUpButton.attr('disabled', '');
+        });
+
+        self._.passwordInput.on('blur keyup', {}, (e) => {
+            if (e.target.value && self.isValidEmail(self._.emailInput.val())) {
+                self._.signUpButton.removeAttr('disabled');
+                return
+            }
+            self._.signUpButton.attr('disabled', '');
+        });
 
         self._.signUpButton.click(() => {
             self.handleSignUp();
@@ -33,70 +49,61 @@ class SignUpPlugster extends Plugster {
 
     handleSignUp() {
         let self = this;
+
         let email = self._.emailInput.val();
         let pwd = self._.passwordInput.val();
 
-        if (!self.isValidEmail(email)) {
-            self._.emailInput.addClass('is-danger');
-            self._.emailInput[0].parentElement.nextElementSibling.classList.remove('hidden');
+        if (!self.isValidEmail(email) || !pwd) {
             return;
-        }
-        else {
-            self._.emailInput.removeClass('is-danger');
-            self._.emailInput[0].parentElement.nextElementSibling.classList.add('hidden');
         }
 
-        if (!pwd) {
-            self._.passwordInput.addClass('is-danger');
-            self._.passwordInput[0].parentElement.nextElementSibling.classList.remove('hidden');
-            return;
-        }
-        else {
-            self._.passwordInput.removeClass('is-danger');
-            self._.passwordInput[0].parentElement.nextElementSibling.classList.add('hidden');
-        }
+        self._.signUpButton.addClass('is-loading');
         createUserWithEmailAndPassword(self.auth, email, pwd).then((credential) => {
-            sendEmailVerification(credential.user).then((response) => {
-                console.log(response);
-            }).catch((reason) => {
-                console.log(reason);
-            });
+            self.setIdentity(credential);
         }).catch((reason) => {
-            console.log(reason);
-        });
-        return;
-            window.bulmaToast.toast({
-                message: 'Hello There', position: "top-center",
-                type: 'is-danger',
-                dismissible: true,
-                animate: {in: 'fadeIn', out: 'fadeOut'},
-            });
-        signInWithEmailAndPassword(self.auth, self._.emailInput.val(), self._.passwordInput.val()).then((credential) => {
-            $.ajax({
-                url: '/auth/identity/',
-                type: 'POST',
-                data: JSON.stringify(credential),
-                contentType: "application/json; charset=utf-8",
-                dataType: 'json',
-                headers: {
-                    'X-Gateway-Token': self._.gatewayTokenHiddenInput.val()
-                }
-            }).done(() => {
-                let queryStringMap = {};
-                window.location.search.substr(1).split('&').forEach(function (q) {
-                    let parts = q.split('=');
-                    if (parts.length !== 2) return;
-                    queryStringMap[parts[0].toString()] = parts[1].toString();
+            self._.signUpButton.removeClass('is-loading');
+            if (reason.code === 'auth/email-already-in-use') {
+                window.bulmaToast.toast({
+                    message: `Email ${email} already in use, please use another email.`,
+                    position: "top-center",
+                    type: 'is-danger',
+                    dismissible: true,
+                    duration: 4000,
+                    animate: {in: 'fadeIn', out: 'fadeOut'},
                 });
-                let queryString = '';
-                if ('draft' in queryStringMap) {
-                    queryString = 'draft=1';
-                }
-                window.location.replace(`/${self._.langCodeHiddentInput.val()}?${queryString}`);
+            }
+        });
+    }
+
+    setIdentity(credential) {
+        let self = this;
+        // noinspection DuplicatedCode
+        $.ajax({
+            url: '/auth/identity/',
+            type: 'POST',
+            data: JSON.stringify(credential),
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            headers: {
+                'X-Gateway-Token': self._.gatewayTokenHiddenInput.val()
+            }
+        }).done(() => {
+            let queryStringMap = {};
+            window.location.search.substr(1).split('&').forEach(function (q) {
+                let parts = q.split('=');
+                if (parts.length !== 2) return;
+                queryStringMap[parts[0].toString()] = parts[1].toString();
             });
-        }).catch((reason) => {
+            let queryString = '';
+            if ('draft' in queryStringMap) {
+                queryString = 'draft=1';
+            }
+            window.location.replace(`/${self._.langCodeHiddentInput.val()}?${queryString}`);
+        }).fail((reason) => {
+            self._.signUpButton.removeClass('is-loading');
             console.log(reason);
         });
+
     }
 
 }

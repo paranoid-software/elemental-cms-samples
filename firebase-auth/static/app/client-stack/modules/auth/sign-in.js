@@ -17,17 +17,42 @@ class SignInPlugster extends Plugster {
 
         let self = this;
 
+        self._.emailInput.on('blur keyup', {}, (e) => {
+            if (e.target.value && self._.passwordInput.val()) {
+                self._.signInButton.removeAttr('disabled');
+                return
+            }
+            self._.signInButton.attr('disabled', '');
+        });
+
+        self._.passwordInput.on('blur keyup', {}, (e) => {
+            if (e.target.value && self._.emailInput.val()) {
+                self._.signInButton.removeAttr('disabled');
+                return
+            }
+            self._.signInButton.attr('disabled', '');
+        });
+
         self._.signInButton.click(() => {
-           self.handleSignIn();
+            self.handleSignIn();
         });
 
     }
 
     handleSignIn() {
+
         let self = this;
+
+        let email = self._.emailInput.val();
+        let pwd = self._.passwordInput.val();
+
+        if (!email || !pwd) {
+            return;
+        }
+
+        self._.signInButton.addClass('is-loading');
         signInWithEmailAndPassword(self.auth, self._.emailInput.val(), self._.passwordInput.val()).then((credential) => {
-            console.log(credential.user)
-            $.ajax( {
+            $.ajax({
                 url: '/auth/identity/',
                 type: 'POST',
                 data: JSON.stringify(credential),
@@ -49,8 +74,16 @@ class SignInPlugster extends Plugster {
                 }
                 window.location.replace(`/${self._.langCodeHiddentInput.val()}?${queryString}`);
             });
-        }).catch((reason) => {
-            console.log(reason);
+        }).catch(() => {
+            self._.signInButton.removeClass('is-loading');
+            window.bulmaToast.toast({
+                message: `Wrong credentials.`,
+                position: "top-center",
+                type: 'is-danger',
+                dismissible: true,
+                duration: 4000,
+                animate: {in: 'fadeIn', out: 'fadeOut'},
+            });
         });
     }
 
