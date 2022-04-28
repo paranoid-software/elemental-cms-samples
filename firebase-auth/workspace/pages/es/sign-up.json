@@ -9,8 +9,14 @@
     "isHome": false,
     "requiresUserIdentity": false,
     "redirectUsersTo": "index",
-    "cssDeps": [],
-    "jsDeps": [],
+    "cssDeps": [{
+        "url": "https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css",
+        "type": "text/css"
+    }],
+    "jsDeps": [{
+        "url": "client-stack/modules/auth/sign-up.js",
+        "type": "module"
+    }],
     "createdAt": {
         "$date": 1650464180700
     },
