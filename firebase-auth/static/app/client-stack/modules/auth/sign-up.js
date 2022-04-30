@@ -81,7 +81,7 @@ class SignUpPlugster extends Plugster {
         let self = this;
         // noinspection DuplicatedCode
         $.ajax({
-            url: '/auth/identity/',
+            url: '/identity/',
             type: 'POST',
             data: JSON.stringify(credential),
             contentType: "application/json; charset=utf-8",

@@ -55,7 +55,7 @@ class SignInPlugster extends Plugster {
         self._.signInButton.addClass('is-loading');
         signInWithEmailAndPassword(self.auth, self._.emailInput.val(), self._.passwordInput.val()).then((credential) => {
             $.ajax({
-                url: '/auth/identity/',
+                url: '/identity/',
                 type: 'POST',
                 data: JSON.stringify(credential),
                 contentType: "application/json; charset=utf-8",

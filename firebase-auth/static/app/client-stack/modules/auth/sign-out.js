@@ -32,7 +32,7 @@ class SignOutPlugster extends Plugster {
         let self = this;
         signOut(self.auth).then(() => {
             $.ajax( {
-                url: '/auth/identity/',
+                url: '/identity/',
                 type: 'DELETE',
                 headers: {
                     'X-Gateway-Token': self._.gatewayTokenHiddenInput.val()
