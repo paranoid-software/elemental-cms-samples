@@ -65,7 +65,7 @@ class SignInPlugster extends Plugster {
                 }
             }).done(() => {
                 let queryStringMap = {};
-                window.location.search.substr(1).split('&').forEach(function (q) {
+                window.location.search.substring(1).split('&').forEach(function (q) {
                     let parts = q.split('=');
                     if (parts.length !== 2) return;
                     queryStringMap[parts[0].toString()] = parts[1].toString();
