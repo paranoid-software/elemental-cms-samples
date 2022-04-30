@@ -4,16 +4,16 @@
             <ul>
                 {% if 'userIdentity' not in session %}
                     <li>
-                        <a href="{{ elemental_url_for_slug(lang_code='en', slug='sign-in', draft=(None if 'draft' not in request.args else '1')) }}">Sign
+                        <a href="{{ elemental_url_for_slug(lang_code='en', slug='sign-in') }}">Sign
                             In</a></li>
                     <li>
-                        <a href="{{ elemental_url_for_slug(lang_code='en', slug='sign-up', draft=(None if 'draft' not in request.args else '1')) }}">I
+                        <a href="{{ elemental_url_for_slug(lang_code='en', slug='sign-up') }}">I
                             don't have an account !</a></li>
                 {% else %}
                     <li>{{ render_snippet('sign-out-plugster') }}</li>
                 {% endif %}
                 <li>
-                    <a href="{{ elemental_url_for_slug(lang_code='es', draft=(None if 'draft' not in request.args else '1')) }}">
+                    <a href="{{ elemental_url_for_slug(lang_code='es') }}">
                         (es)
                     </a>
                 </li>
