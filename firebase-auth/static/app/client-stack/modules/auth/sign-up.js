@@ -24,6 +24,7 @@ class SignUpPlugster extends Plugster {
         self._.emailInput.on('blur keyup', {}, (e) => {
             if (self.isValidEmail(e.target.value) && self._.passwordInput.val()) {
                 self._.signUpButton.removeAttr('disabled');
+                self._.signUpButton.off('click').click(() => { self.handleSignUp(); });
                 return
             }
             self._.signUpButton.attr('disabled', '');
@@ -32,15 +33,12 @@ class SignUpPlugster extends Plugster {
         self._.passwordInput.on('blur keyup', {}, (e) => {
             if (e.target.value && self.isValidEmail(self._.emailInput.val())) {
                 self._.signUpButton.removeAttr('disabled');
+                self._.signUpButton.off('click').click(() => { self.handleSignUp(); });
                 return
             }
             self._.signUpButton.attr('disabled', '');
         });
-
-        self._.signUpButton.click(() => {
-            self.handleSignUp();
-        });
-
+        
     }
 
     isValidEmail(email) {
