@@ -38,7 +38,7 @@ class SignUpPlugster extends Plugster {
             }
             self._.signUpButton.attr('disabled', '');
         });
-        
+
     }
 
     isValidEmail(email) {
