@@ -24,6 +24,7 @@ class SignInPlugster extends Plugster {
         self._.emailInput.on('blur keyup', {}, (e) => {
             if (e.target.value && self._.passwordInput.val()) {
                 self._.signInButton.removeAttr('disabled');
+                self._.signInButton.off('click').click(() => { self.handleSignIn(); });
                 return
             }
             self._.signInButton.attr('disabled', '');
@@ -32,13 +33,10 @@ class SignInPlugster extends Plugster {
         self._.passwordInput.on('blur keyup', {}, (e) => {
             if (e.target.value && self._.emailInput.val()) {
                 self._.signInButton.removeAttr('disabled');
+                self._.signInButton.off('click').click(() => { self.handleSignIn(); });
                 return
             }
             self._.signInButton.attr('disabled', '');
-        });
-
-        self._.signInButton.click(() => {
-            self.handleSignIn();
         });
 
     }
@@ -57,7 +55,7 @@ class SignInPlugster extends Plugster {
         self._.signInButton.addClass('is-loading');
         signInWithEmailAndPassword(self.auth, self._.emailInput.val(), self._.passwordInput.val()).then((credential) => {
             $.ajax({
-                url: '/auth/identity/',
+                url: '/identity/',
                 type: 'POST',
                 data: JSON.stringify(credential),
                 contentType: "application/json; charset=utf-8",
@@ -67,7 +65,7 @@ class SignInPlugster extends Plugster {
                 }
             }).done(() => {
                 let queryStringMap = {};
-                window.location.search.substr(1).split('&').forEach(function (q) {
+                window.location.search.substring(1).split('&').forEach(function (q) {
                     let parts = q.split('=');
                     if (parts.length !== 2) return;
                     queryStringMap[parts[0].toString()] = parts[1].toString();
