@@ -1,4 +1,4 @@
 {
-    "configFilePath": "settings/debug.json",
+    "configFilePath": "settings/local.cli.json",
     "lastUpdateTime": "2022-05-01 21:11:57"
 }
