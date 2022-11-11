@@ -1,0 +1,38 @@
+{
+  "cmsCoreContext": {
+    "DEBUG": true,
+    "ENV": "development",
+    "SECRET": "vHf5bl+dcr5pjzUfzRP/Xg==",
+    "SITE_NAME": "Elemental CMS Firestore Auth",
+    "COMPANY": "Kudos Company",
+    "CANONICAL_URL": "https://www.elemental-kudos.com",
+    "LANGUAGES": [
+      "en",
+      "es"
+    ],
+    "DEFAULT_LANGUAGE": "en",
+    "LANGUAGE_MODE": "multi",
+    "APP_NAME": "app",
+    "STATIC_FOLDER": "static",
+    "MEDIA_FOLDER": "media",
+    "STATIC_URL": "/static",
+    "MEDIA_URL": "/media",
+    "GLOBAL_DEPS_FOLDER": "workspace/global_deps",
+    "PAGES_FOLDER": "workspace/pages",
+    "SNIPPETS_FOLDER": "workspace/snippets",
+    "USER_IDENTITY_SESSION_KEY": "userIdentity",
+    "SESSION_STORAGE_ENABLED": false,
+    "SESSION_TIMEOUT_IN_MINUTES": 30
+  },
+  "cmsDbContext": {
+    "id": "local-mongodb-server",
+    "hostName": "localhost",
+    "portNumber": 27017,
+    "databaseName": "elemental_firebase_auth",
+    "authSource": "admin",
+    "username": "root",
+    "password": "pwd",
+    "directConnection": true
+  }
+}
+

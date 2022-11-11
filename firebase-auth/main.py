@@ -8,7 +8,7 @@ from flask import Flask
 
 www = Flask(__name__, template_folder='templates', static_folder='static')
 
-CONFIG_FILE_PATH = os.environ.get('CONFIG_FILE_PATH', 'settings/debug.json')
+CONFIG_FILE_PATH = os.environ.get('CONFIG_FILEPATH', 'settings/local.www.json')
 
 with open(CONFIG_FILE_PATH) as config_file:
     settings = json.load(config_file)
