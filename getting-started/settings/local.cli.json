@@ -1,0 +1,52 @@
+{
+  "cmsCoreContext": {
+    "DEBUG": false,
+    "ENV": "production",
+    "SECRET": "XyXIKCbotmzy8pVDPY/6eg==",
+    "SITE_NAME": "Elemental CMS Getting Started",
+    "COMPANY": "Kudos Company",
+    "CANONICAL_URL": "https://www.elemental-kudos.com",
+    "LANGUAGES": [
+      "en",
+      "es"
+    ],
+    "DEFAULT_LANGUAGE": "en",
+    "LANGUAGE_MODE": "multi",
+    "APP_NAME": "app",
+    "STATIC_FOLDER": "static",
+    "MEDIA_FOLDER": "media",
+    "STATIC_URL": "https://storage.googleapis.com/getting-started-static-bucket",
+    "MEDIA_URL": "https://storage.googleapis.com/getting-started-media-bucket",
+    "STATIC_BUCKET": "getting-started-static-bucket",
+    "MEDIA_BUCKET": "getting-started-media-bucket",
+    "GOOGLE_SERVICE_ACCOUNT_INFO": {
+      "type": "service_account",
+      "project_id": "your-project-id",
+      "private_key_id": "your-private-key-id",
+      "private_key": "-----BEGIN PRIVATE KEY-----\nYOUR-PRIVATE-KEY\n-----END PRIVATE KEY-----\n",
+      "client_email": "your-client-email",
+      "client_id": "your-client-id",
+      "auth_uri": "your-account-uri",
+      "token_uri": "you-token-uri",
+      "auth_provider_x509_cert_url": "your-provider-x509-cert-url",
+      "client_x509_cert_url": "your-x509-cert-url"
+    },
+    "GLOBAL_DEPS_FOLDER": "workspace/global_deps",
+    "PAGES_FOLDER": "workspace/pages",
+    "SNIPPETS_FOLDER": "workspace/snippets",
+    "USER_IDENTITY_SESSION_KEY": "userIdentity",
+    "SESSION_STORAGE_ENABLED": false,
+    "SESSION_TIMEOUT_IN_MINUTES": 30
+  },
+  "cmsDbContext": {
+    "id": "local-mongodb-server",
+    "hostName": "localhost",
+    "portNumber": 27017,
+    "databaseName": "elemental_getting_started",
+    "authSource": "admin",
+    "username": "root",
+    "password": "pwd",
+    "directConnection": true
+  }
+}
+

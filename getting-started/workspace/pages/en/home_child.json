@@ -1,0 +1,18 @@
+{
+    "_id": {
+        "$oid": "63149cb0a4e03101b8a9d8bf"
+    },
+    "name": "home/child",
+    "language": "en",
+    "title": "home/child page",
+    "description": "",
+    "isHome": false,
+    "cssDeps": [],
+    "jsDeps": [],
+    "createdAt": {
+        "$date": 1662295216178
+    },
+    "lastModifiedAt": {
+        "$date": 1662295216178
+    }
+}
